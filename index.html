@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carta Secreta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#f9efe1;
+      --ink:#2b1b0f;
+      --accent:#8b1e1e;
+      --shadow: 0 20px 40px rgba(11,7,4,0.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Roboto Slab',serif;background:linear-gradient(180deg,#2b2b3a 0%, #0f1724 100%);color:var(--ink)}
+
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:3rem}
+
+    .paper{
+      width:880px;max-width:94vw;background:var(--paper);padding:44px 64px;border-radius:14px;box-shadow:var(--shadow);position:relative;overflow:hidden;border:1px solid rgba(0,0,0,0.06);
+      transform-origin:center;transition:transform .8s cubic-bezier(.2,.9,.3,1);
+    }
+
+    .paper:before{
+      content:'';position:absolute;inset:8px;border-radius:10px;pointer-events:none;background:linear-gradient(0deg,rgba(0,0,0,0.02),transparent 20%);
+      mix-blend-mode:multiply;z-index:0
+    }
+
+    h1.title{font-family:'Great Vibes',cursive;font-size:48px;margin:0 0 8px;color:var(--accent);letter-spacing:.5px}
+    p.meta{margin:0 0 20px;color:rgba(0,0,0,0.45)}
+
+    .letter-body{font-size:18px;line-height:1.9;position:relative;z-index:1}
+
+    .seal{position:absolute;right:26px;bottom:26px;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#d44444,#8b1e1e);box-shadow:0 8px 18px rgba(139,30,30,0.45);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:sans-serif;transform:rotate(-6deg);text-align:center;font-size:14px;line-height:1.2;}
+
+    .band{position:absolute;left:-20px;top:40%;width:calc(100% + 40px);height:8px;background:linear-gradient(90deg,#d9c3a8,#cfa87b);transform:rotate(-2deg);opacity:.6}
+
+    .overlay{position:fixed;inset:0;background:rgba(4,8,18,0.72);display:flex;align-items:center;justify-content:center;padding:20px;z-index:999}
+    .pwcard{width:420px;max-width:94vw;background:#0b1020;border-radius:12px;padding:26px;color:#fff;box-shadow:0 12px 32px rgba(2,6,23,0.6);text-align:center}
+    .pwcard h2{margin:0 0 8px;font-weight:700}
+    .pwcard p{margin:0 0 18px;color:rgba(255,255,255,0.75)}
+    .pwfield{display:flex;gap:10px}
+    input[type=password]{flex:1;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:transparent;color:#fff;font-size:16px}
+    button.btn{padding:10px 14px;border-radius:8px;border:0;background:linear-gradient(180deg,#ff7b7b,#d24444);color:#fff;font-weight:700;cursor:pointer}
+
+    .shake{animation:shake .6s}
+    @keyframes shake{0%{transform:translateX(0)}20%{transform:translateX(-10px)}40%{transform:translateX(10px)}60%{transform:translateX(-8px)}80%{transform:translateX(6px)}100%{transform:translateX(0)}}
+
+    .paper.hidden{transform:scale(.92) rotate(-2deg);filter:blur(6px);opacity:.0}
+    .paper.revealed{animation:pop .9s cubic-bezier(.2,.9,.3,1) forwards}
+    @keyframes pop{0%{transform:scale(.95) translateY(12px);opacity:0}60%{transform:scale(1.02) translateY(-6px)}100%{transform:scale(1) translateY(0);opacity:1}}
+
+    .controls{margin-top:20px;display:flex;gap:10px}
+    .muted{color:rgba(0,0,0,0.45);font-size:14px}
+
+    @media (max-width:560px){.paper{padding:22px 20px}.seal{width:72px;height:72px;right:12px;bottom:12px}.title{font-size:36px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="paper hidden" id="paper">
+      <div class="band"></div>
+      <h1 class="title">Para ti, princesa</h1>
+      <p class="meta">Guardada en secreto · 16 de septiembre, 2025</p>
+
+      <div class="letter-body" id="letter">
+        <p>Mi vida: Yarely Rangel</p>
+        <p>Quiero comenzar diciéndote que esta carta es solo para ti. La guardo con cariño para poder compartir en privado lo que siento; lee despacio, tómate tu tiempo y deja que cada línea ocupe su propio espacio en tu cabeza. Lo que está escrito nace del fondo de mi corazón y del puro deseo de verte sonreír.</p>
+
+        <p>En las noches, cuando intento dormir, siempre vienes a mi mente. Apareces en los momentos más tranquilos y eso me hace reflexionar: ¿cómo negar que te amo si siempre te tengo presente? No importa si el día fue una basura o el mejor día del mundo, siempre caes en mi pensamiento y se abre en mí un vacío enorme —la sensación de que me falta algo— y ese faltante eres tú.</p>
+
+        <p>Me encanta Rangel, me encanta tu sonrisa, tus lunares, tu cabello, me encanta cuando te tomas el tiempo de abrirte y decirme lo que realmente sientes. Siempre trato de que sea así pero es muy difícil, créeme que es lo que más quiero. Quiero que me cuentes todo; no digo que lo hagas en el día, bien podría ser en la noche cuando encuentro ese espacio para dedicarte solo a ti y nadie más que a ti. Me encantas, chula, y no encuentro manera de hacértelo saber. Creo que te aburrirías si te amara como realmente lo sé hacer.</p>
+
+        <p>Los días en que no hablamos se vuelven un pequeño martirio. Me angustia no saber de ti; me encantas y me consume ese querer saber si estás bien, qué haces, qué sientes. Me encanta escribirte cuando te quiero porque, aunque a veces actúe como un tonto intentando sobrellevar las cosas, todo sale de un lugar verdadero dentro de mí. Si alguna vez te he hecho sentir lo contrario, perdóname; no es mi intención.</p>
+
+        <p>Sé que a veces nuestros egos chocan y que no siempre encuentro la forma perfecta de expresarlo, pero si seguimos aquí es porque hay un deseo claro: quiero que seas para mí. En la manera en que te he amado —con fallos, con risas, con errores— no creo que nadie lo repita ni hoy ni nunca. No soy inmortal; por eso quiero que sepas, desde ya, cuánto te amo. Si algún día la vida nos separa por cualquier razón, quiero que guardes esto.</p>
+
+        <p>Contigo me siento como j1407b y todos sus anillos, único, inmenso, imposible de medir. Lo que siento es tan profundo como el mar abrazando la luna, eterno, constante y lleno de misterio. Te elijo porque eres como un amanecer en medio del invierno, luz en donde nadie la espera, calor donde parecía no haber vida. Cada pensamiento, cada emoción, cada gesto mío se entrelaza contigo de una manera que no puedo explicar, solo sentir.</p>
+
+        <p>Gracias por existir en mi vida y por ser la razón de mis pensamientos más bonitos. Cada palabra escrita aquí se queda corta para lo que siento, pero espero que al leerla puedas sentir un poco de lo que habita en mi corazón.</p>
+
+        <p>Te amo, princesa.</p>
+        <p>Con todo mi amor.<br>[Tu amor Jesus Alejandro]</p>
+      </div>
+
+      <div class="seal">Yarely
+<br>Yahir</div>
+    </article>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="pwcard" id="pwcard">
+      <h2>Entrada Restringida</h2>
+      <p>Introduce la contraseña para abrir la carta.</p>
+      <div class="pwfield">
+        <input id="pw" type="password" placeholder="Contraseña" autocomplete="off" />
+        <button class="btn" id="unlock">Abrir</button>
+      </div>
+      <p class="muted" style="margin-top:12px">Pista: Es algo especial que utilizo para tirarte indirectas, solo tú podrías saberlo 🐺.</p>
+    </div>
+  </div>
+
+  <script>
+    const PASS = 'i wolf you';
+
+    const overlay = document.getElementById('overlay');
+    const pwInput = document.getElementById('pw');
+    const unlock = document.getElementById('unlock');
+    const pwcard = document.getElementById('pwcard');
+    const paper = document.getElementById('paper');
+
+    function tryUnlock(){
+      const v = pwInput.value;
+      if(v === PASS){
+        overlay.style.display = 'none';
+        paper.classList.remove('hidden');
+        paper.classList.add('revealed');
+      } else {
+        pwcard.classList.remove('shake');
+        void pwcard.offsetWidth;
+        pwcard.classList.add('shake');
+        pwInput.value = '';
+      }
+    }
+
+    unlock.addEventListener('click', tryUnlock);
+    pwInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') tryUnlock(); });
+
+    pwInput.focus();
+  </script>
+</body>
+</html>
